@@ -1,0 +1,33 @@
+{% extends "imcmotivator/index.html" %} {% load static %} {% block dashboard-home %}
+
+<div class="page-header">
+    <div class="page-block">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <div class="page-header-title">
+                    <h5 class="m-b-10">Home</h5>
+                </div>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/imcmotivator/home/">Dashboard</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <!-- [ form-element ] start -->
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5>Dashboard</h5>
+            </div>
+            <div class="card-body">
+                <h1>Bem-vindo(a) <b class="text-primary">{{user.first_name}} {{user.last_name}}</b> ! &#128516;</h1>
+            </div>
+        </div>
+    </div>
+    <!-- [ form-element ] end -->
+</div>
+<!-- [ Main Content ] end -->
+{% endblock %}

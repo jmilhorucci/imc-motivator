@@ -1,0 +1,64 @@
+{% extends "imcmotivator/index.html" %} {% load static %} {% block listar-peso-pessoa %}
+
+<div class="page-header">
+    <div class="page-block">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <div class="page-header-title">
+                    <h5 class="m-b-10">Peso</h5>
+                </div>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/imcmotivator/listarPeso/{{user.pk}}">Histórico</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <!-- customer-section start -->
+    <!-- [ Hover-table ] start -->
+
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5>Listagem de Peso</h5>
+                <span class="d-block m-t-5">Histórico de pesos do usuário em tabela.</span>
+            </div>
+            <div class="card-body table-border-style">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Peso</th>
+                                <th>IMC</th>
+                                <th>Data Cadastro</th>
+                                <!--<th>Ações</th>-->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for peso in pesos %}
+                            <tr>
+                                <td>{{peso.peso}}</td>
+                                <td>{{peso.imc}}</td>
+                                <td>{{peso.dataCadastro}}</td>
+                                <!-- 
+                                <td>
+                                    <button type="button" class="btn btn-light-success" href="#"><i class="bi bi-search"></i></button>
+                                    <button type="button" class="btn btn-light-warning"><i class="bi bi-pen"></i></button>
+                                    <button type="button" class="btn btn-light-danger"><i class="bi bi-trash"></i></button>
+
+                                </td>
+                                -->
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- [ Main Content ] end -->
+{% endblock %}

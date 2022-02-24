@@ -1,0 +1,45 @@
+{% extends "imcmotivator/index.html" %} {% load static %} {% block frase-autor-favorite %}
+
+<div class="page-header">
+    <div class="page-block">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <div class="page-header-title">
+                    <h5 class="m-b-10">Dose de Motivação</h5>
+                </div>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/imcmotivator/fraseAutorPessoa/{{user.pk}}">Frase por Autor</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <!-- customer-section start -->
+    <!-- [ Hover-table ] start -->
+
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5>Frase do Autor Favorito</h5>
+                <span class="d-block m-t-5">Nada melhor do que se inspirar em alguém &#129304; </span>
+            </div>
+            <div class="card-body table-border-style">
+                <div class="table-responsive">
+                    <blockquote class="blockquote bg-primary text-white">
+                        <p class="mb-2">{{autorPessoaFrase.frase}}</p>
+                        <br>
+                        <footer class="blockquote-footer text-white">by <cite title="Source Title">{{autorPessoaFrase.autor}}</cite></footer>
+                    </blockquote>
+                </div>
+                <div class="text-center" hei>
+                    <img src="{{autorPessoaFrase.imgAutor}}" class="img-thumbnail" width="150" height="150">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- [ Main Content ] end -->
+{% endblock %}

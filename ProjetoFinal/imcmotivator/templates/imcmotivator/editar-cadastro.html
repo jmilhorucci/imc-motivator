@@ -1,0 +1,159 @@
+{% extends "imcmotivator/index.html" %} {% load static %} {% block editar-cadastro %}
+<div class="page-header">
+    <div class="page-block">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <div class="page-header-title">
+                    <h5 class="m-b-10">Home</h5>
+                </div>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/imcmotivator/editar-cadastro/{{user.pk}}">Editar Informações</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <!-- [ form-element ] start -->
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5>Editar Conta</h5>
+            </div>
+            <div class="card-body">
+                <form name="form_cad_pessoa" action="/imcmotivator/editarCad/{{user.pk}}/" method="post" class="row g-3 needs-validation" novalidate>
+                    {% csrf_token %}
+                    <div class="col-md-6 position-relative">
+                        <label for="first_name" class="form-label">Nome</label>
+                        <input type="text" name="first_name" class="form-control nome_sobrenome" id="first_name" value="{{pessoa.user.first_name}}" placeholder="Nome">
+                        <div class="invalid-tooltip">
+                            Ops! &#x1F641; Por favor, preencha seu Nome corretamente.
+                        </div>
+                        <div class="valid-tooltip">
+                            Campo Nome preenchido corretamente! &#x1F44D;
+                        </div>
+                    </div>
+                    <div class="col-md-6 position-relative">
+                        <label for="last_name" class="form-label">Sobrenome</label>
+                        <input type="text" name="last_name" class="form-control nome_sobrenome" id="last_name" value="{{pessoa.user.last_name}}" placeholder="Sobrenome">
+                        <div class="invalid-tooltip">
+                            Hmm... &#x1F641; Por favor, preencha seu Sobrenome corretamente.
+                        </div>
+                        <div class="valid-tooltip">
+                            Campo Sobrenome preenchido corretamente! &#x1F44D;
+                        </div>
+                    </div>
+                    <div class="col-md-4 position-relative">
+                        <label for="email" class="form-label">E-mail</label>
+                        <input type="email" name="email" class="form-control" id="email" value="{{pessoa.user.email}}" placeholder="E-mail">
+                        <div class="invalid-tooltip">
+                            Opa! &#x1F641; Por favor, insira um E-mail válido.
+                        </div>
+                        <div class="valid-tooltip">
+                            Campo Usuário preenchido corretamente! &#x1F44D;
+                        </div>
+                    </div>
+                    <div class="col-md-4 position-relative">
+                        <label for="username" class="form-label">Usuário</label>
+                        <div class="input-group">
+                            <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
+                            <input type="text" name="username" class="form-control" id="username" aria-describedby="validationTooltipUsernamePrepend" value="{{pessoa.user.username}}" disabled>
+                            <div class="invalid-tooltip">
+                                Ops! &#x1F641; Por favor, digite o Usuário corretamente.
+                            </div>
+                            <div class="valid-tooltip">
+                                Campo Usuário preenchido corretamente! &#x1F44D;
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 
+                    pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+                -->
+                    <div class="col-md-4 position-relative">
+                        <label for="password" class="form-label">Senha</label>
+                        <input type="password" name="password" class="form-control" id="password" placeholder="" required="">
+                        <div class="invalid-tooltip">
+                            Ops! &#x1F641; A Senha deve conter no minímo: 8 caracteres, um número [0-9], uma letra maiúscula [A-Z], uma letra minúscula [a-z] e um caracter especial [!, @, #, $].
+                        </div>
+                        <div class="valid-tooltip">
+                            Campo Senha preenchido corretamente! &#x1F44D;
+                        </div>
+                    </div>
+                    <div class="col-md-3 position-relative">
+                        <label for="telefone" class="form-label">Telefone</label>
+                        <input type="tel" name="telefone" class="form-control" id="telefone" value="{{pessoa.telefone}}" placeholder="(xx) xxxxx-xxxx" maxlength="15" pattern="^\([1-9]{2}\) (?:[2-8]|9[1-9])[0-9]{3}\-[0-9]{4}$">
+                        <div class="invalid-tooltip">
+                            Algo errado...&#x1F641; Por favor, digite o Telefone corretamente.
+                        </div>
+                        <div class="valid-tooltip">
+                            Campo Telefone preenchido corretamente! &#x1F44D;
+                        </div>
+                    </div>
+                    <div class="col-md-3 position-relative">
+                        <label for="altura" class="form-label">Altura</label>
+                        <input type="number" name="altura" class="form-control" id="altura" value="{{pessoa.altura}}" placeholder="1,83" onchange="setTwoNumberDecimal" min="0" max="3" step="0.01">
+                        <div class="invalid-tooltip">
+                            Ops! &#x1F641; Por favor, digite a Altura usando ponto. (Ex: 1.70)
+                        </div>
+                        <div class="valid-tooltip">
+                            Campo Altura preenchido corretamente! &#x1F44D;
+                        </div>
+                    </div>
+                    <div class="col-md-3 position-relative">
+                        <label for="autor" class="form-label">Autor</label>
+                        <select class="form-select" name="autor" id="autor">
+                            <option selected value="{{pessoa.autor}}">{{pessoa.autor}}</option>
+                            <option value="Arnold Schwarzenegger">Arnold Schwarzenegger</option>
+                            <option value="Dorian Yates">Dorian Yates</option>
+                            <option value="Franco Columbu">Franco Columbu</option>
+                            <option value="Frank Zane">Frank Zane</option>
+                            <option value="Jay Cutler">Jay Cutler</option>
+                            <option value="Kevin Levrone">Kevin Levrone</option>
+                            <option value="Lee Haney">Lee Haney</option>
+                            <option value="Phil Heath">Phil Heath</option>
+                            <option value="Ronnie Coleman">Ronnie Coleman</option>
+                            <option value="Shawn Ray">Shawn Ray</option>
+                        </select>
+                        <div class="invalid-tooltip">
+                            Epa! &#x1F641; Por favor, selecione um autor disponível.
+                        </div>
+                        <div class="valid-tooltip">
+                            Autor selecionado corretamente! &#x1F44D;
+                        </div>
+                    </div>
+                    <div class="col-md-3 position-relative">
+                        <label for="idioma" class="form-label">Idioma</label>
+                        <select class="form-select" name="idioma" id="idioma">
+                            <option selected value="{{pessoa.idioma}}">
+                                {% if pessoa.idioma == 'pt' %}
+                                Português (Brasil)
+                                {% elif pessoa.idioma == 'en' %}
+                                Inglês
+                                {% elif pessoa.idioma == 'es' %}
+                                Espanhol
+                                {%endif%}
+                            </option>
+                            <option value="pt">Português (Brasil)</option>
+                            <option value="en">Inglês</option>
+                            <option value="es">Espanhol</option>
+                        </select>
+                        <div class="invalid-tooltip">
+                            Epa! &#x1F641; Por favor, selecione um idioma disponível.
+                        </div>
+                        <div class="valid-tooltip">
+                            Idioma selecionado corretamente! &#x1F44D;
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="col-12 text-right">
+                        <a href="/imcmotivator/home"><button type="button"
+                                class="btn btn-secondary mr-2">Cancelar</button></a>
+                        <button type="submit" class="btn btn-primary">Alterar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

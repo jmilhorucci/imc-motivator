@@ -1,0 +1,115 @@
+{% extends "imcmotivator/index.html" %} {% load static %} {% block cadastrar-pessoa %}
+<div class="row">
+    <!-- [ form-element ] start -->
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5>Cadastrar Pessoas</h5>
+            </div>
+            <div class="card-body">
+                <form name="form_cad_pessoa" action="/imcmotivator/salvarCadastro/" method="post" class="row g-3 needs-validation" novalidate>
+                    {% csrf_token %}
+                    <div class="col-md-6 position-relative">
+                        <label for="first_name" class="form-label">Nome</label>
+                        <input type="text" name="first_name" class="form-control nome_sobrenome" id="first_name" value="{{first_name}}" required="">
+                        <div class="invalid-tooltip">
+                            Ops! &#x1F641; Por favor, preencha seu Nome corretamente.
+                        </div>
+                        <div class="valid-tooltip">
+                            Campo Nome preenchido corretamente! &#x1F44D;
+                        </div>
+                    </div>
+                    <div class="col-md-6 position-relative">
+                        <label for="last_name" class="form-label">Sobrenome</label>
+                        <input type="text" name="last_name" class="form-control nome_sobrenome" id="last_name" value="{{last_name}}" required="">
+                        <div class="invalid-tooltip">
+                            Hmm... &#x1F641; Por favor, preencha seu Sobrenome corretamente.
+                        </div>
+                        <div class="valid-tooltip">
+                            Campo Sobrenome preenchido corretamente! &#x1F44D;
+                        </div>
+                    </div>
+                    <div class="col-md-4 position-relative">
+                        <label for="email" class="form-label">E-mail</label>
+                        <input type="email" name="email" class="form-control" id="email" value="{{email}}" required="">
+                        <div class="invalid-tooltip">
+                            Opa! &#x1F641; Por favor, insira um E-mail válido.
+                        </div>
+                        <div class="valid-tooltip">
+                            Campo Usuário preenchido corretamente! &#x1F44D;
+                        </div>
+                    </div>
+                    <div class="col-md-4 position-relative">
+                        <label for="username" class="form-label">Usuário</label>
+                        <div class="input-group">
+                            <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
+                            <input type="text" name="username" class="form-control" id="username" aria-describedby="validationTooltipUsernamePrepend" value="{{username}}" required="">
+                            <div class="invalid-tooltip">
+                                Ops! &#x1F641; Por favor, digite o Usuário corretamente.
+                            </div>
+                            <div class="valid-tooltip">
+                                Campo Usuário preenchido corretamente! &#x1F44D;
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 
+                        pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+                    -->
+                    <div class="col-md-4 position-relative">
+                        <label for="password" class="form-label">Senha</label>
+                        <input type="password" name="password" class="form-control" id="password" value="{{password}}" required="">
+                        <div class="invalid-tooltip">
+                            Ops! &#x1F641; A Senha deve conter no minímo: 8 caracteres, um número [0-9], uma letra maiúscula [A-Z], uma letra minúscula [a-z] e um caracter especial [!, @, #, $].
+                        </div>
+                        <div class="valid-tooltip">
+                            Campo Senha preenchido corretamente! &#x1F44D;
+                        </div>
+                    </div>
+                    <div class="col-md-3 position-relative">
+                        <label for="telefone" class="form-label">Telefone</label>
+                        <input type="tel" name="telefone" class="form-control" id="telefone" value="{{telefone}}" maxlength="15" pattern="^\([1-9]{2}\) (?:[2-8]|9[1-9])[0-9]{3}\-[0-9]{4}$" required="">
+                        <div class="invalid-tooltip">
+                            Algo errado...&#x1F641; Por favor, digite o Telefone corretamente.
+                        </div>
+                        <div class="valid-tooltip">
+                            Campo Telefone preenchido corretamente! &#x1F44D;
+                        </div>
+                    </div>
+                    <div class="col-md-3 position-relative">
+                        <label for="altura" class="form-label">Altura</label>
+                        <input type="number" name="altura" class="form-control" id="altura" value="{{altura}}" placeholder="0.00" onchange="setTwoNumberDecimal" min="0" max="10" step="0.01" required="">
+                        <div class="invalid-tooltip">
+                            Ops! &#x1F641; Por favor, digite a Altura usando ponto. (Ex: 1.70)
+                        </div>
+                        <div class="valid-tooltip">
+                            Campo Altura preenchido corretamente! &#x1F44D;
+                        </div>
+                    </div>
+                    <div class="col-md-3 position-relative">
+                        <label for="idioma" class="form-label">Idioma</label>
+                        <select class="form-select" name="idioma" id="idioma" required="">
+                            <option selected="" disabled="" value="">Selecionar...</option>
+                            <option value="pt">Português (Brasil)</option>
+                            <option value="en">Inglês</option>
+							<option value="es">Espanhol</option>
+                        </select>
+                        <div class="invalid-tooltip">
+                            Epa! &#x1F641; Por favor, selecione um idioma disponível.
+                        </div>
+                        <div class="valid-tooltip">
+                            Idioma selecionado corretamente! &#x1F44D;
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="col-12">
+                        <button class="btn btn-primary" type="submit">Enviar</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <!-- [ form-element ] end -->
+</div>
+
+{% endblock %}

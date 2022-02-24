@@ -1,0 +1,56 @@
+{% extends "imcmotivator/index.html" %} {% load static %} {% block frase-palavra %}
+<div class="row">
+    <!-- [ form-element ] start -->
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5>Pesquisar frase</h5>
+            </div>
+            <div class="card-body">
+                <form name="form_cad_pessoa" action="/imcmotivator/PesquisafrasePalavrachave/{{user.pk}}/" method="post"
+                    class="row g-3 needs-validation" novalidate>
+                    {% if message %}
+                    <div>{{ message }}</div>
+                    {% endif %}
+
+                    {% csrf_token %}
+
+                    <div class="col-md-3 position-relative">
+                        <label for="peso" class="form-label">Digite a palavra</label>
+                        <input type="text" name="palavra" id="palavra" value="{{returnFrase.palavra}}"
+                            class="form-control" placeholder="algo" required="">
+                        <div class="invalid-tooltip">
+                            Ops! &#x1F641; Por favor, digite palavra que deseja encontrar
+                        </div>
+                        <div class="valid-tooltip">
+                            Campo preenchido corretamente! &#x1F44D;
+                        </div>
+                    </div>
+                    {% if returnFrase %}
+                    <div class="card-body table-border-style">
+                        <div class="table-responsive">
+                            <blockquote class="blockquote bg-primary text-white">
+                                <p class="mb-2">{{returnFrase.frase}}</p>
+                                <br>
+                                <footer class="blockquote-footer text-white">by <cite
+                                        title="Source Title">{{returnFrase.autor}}</cite></footer>
+                            </blockquote>
+                        </div>
+                        <div class="text-center" hei>
+                            <img src="{{returnFrase.imgAutor}}" class="img-thumbnail" width="150" height="150">
+                        </div>
+                    </div>
+                    {% endif %}
+                    <hr>
+                    <div class="col-12 text-right">
+                        <button class="btn btn-primary" type="submit">Procurar</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <!-- [ form-element ] end -->
+</div>
+
+{% endblock %}

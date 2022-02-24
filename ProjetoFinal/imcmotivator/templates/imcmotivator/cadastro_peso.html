@@ -1,0 +1,55 @@
+{% extends "imcmotivator/index.html" %} {% load static %} {% block cadastrar-peso-pessoa %}
+
+<!-- [ breadcrumb ] start -->
+<div class="page-header">
+    <div class="page-block">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <div class="page-header-title">
+                    <h5 class="m-b-10">Peso</h5>
+                </div>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/imcmotivator/cadastroPeso/">Cadastrar</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <!-- [ form-element ] start -->
+    <div class="col-md-12">
+        <form name="form_cad_pessoa" action="/imcmotivator/salvarPeso/{{user.pk}}/" method="post" class="row g-3 needs-validation" novalidate>
+            {% csrf_token %}
+            <div class="card">
+                <div class="card-header">
+                    <h5>Cadastrar Peso</h5>
+                </div>
+                <div class="card-body">
+                    {% if message %}
+                    <div>
+                        <p class="text-danger">{{ message }}</p>
+                    </div>
+                    {% endif %}
+
+                    <div class="col-md-3 position-relative">
+                        <label for="peso" class="form-label">Peso (Kg)</label>
+                        <input type="number" name="peso" class="form-control" id="peso" value="{{peso}}" placeholder="00.00" onchange="setTwoNumberDecimal" min="0" max="1000" step="00.01" required="">
+                        <div class="invalid-tooltip">
+                            Ops! &#x1F641; Por favor, digite a Peso usando ponto. (Ex: 1.70)
+                        </div>
+                        <div class="valid-tooltip">
+                            Campo Peso preenchido corretamente! &#x1F44D;
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer col-12 text-right">
+                    <button class="btn btn-primary" type="submit">Enviar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- [ form-element ] end -->
+</div>
+
+{% endblock %}

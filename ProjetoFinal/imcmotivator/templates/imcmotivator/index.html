@@ -1,0 +1,250 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <title>Home - IMC Motivator</title>
+    <!-- HTML5 Shim and Respond.js IE11 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 11]>
+    	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    	<![endif]-->
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="DashboardKit is made using Bootstrap 5 design framework. Download the free admin template & use it for your project.">
+    <meta name="keywords" content="DashboardKit, Dashboard Kit, Dashboard UI Kit, Bootstrap 5, Admin Template, Admin Dashboard, CRM, CMS, Free Bootstrap Admin Template">
+    <meta name="author" content="DashboardKit ">
+
+
+    <!-- Favicon icon -->
+    <link rel="icon" href="{% static 'assets/images/favicon.svg'%}" type="image/x-icon">
+
+    <!-- font css -->
+    <link rel="stylesheet" href="{% static 'assets/fonts/feather.css'%}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/fontawesome.css'%}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/material.css'%}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+    <!-- vendor css -->
+    <link rel="stylesheet" href="{% static 'assets/css/style.css'%}" id="main-style-link">
+
+</head>
+
+<body class="">
+    <!-- [ Pre-loader ] start -->
+    <div class="loader-bg">
+        <div class="loader-track">
+            <div class="loader-fill"></div>
+        </div>
+    </div>
+    <!--
+        [ Pre-loader ] End --
+        [ Mobile header ] start
+    -->
+    <div class="pc-mob-header pc-header">
+        <div class="pcm-logo">
+            <img src="{% static 'assets/images/imcmotivator-icon.png'%}" alt="" class="logo logo-lg">
+        </div>
+        <div class="pcm-toolbar">
+            <a href="#" class="pc-head-link" id="mobile-collapse">
+                <div class="hamburger hamburger--arrowturn">
+                    <div class="hamburger-box">
+                        <div class="hamburger-inner"></div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="pc-head-link" id="header-collapse">
+                <i data-feather="more-vertical"></i>
+            </a>
+        </div>
+    </div>
+    <!-- [ Mobile header ] End -->
+
+    <!-- [ navigation menu ] start -->
+    <nav class="pc-sidebar ">
+        <div class="navbar-wrapper">
+            <div class="m-header">
+                <a href="/imcmotivator/home" class="b-brand">
+                    <!-- ========   change your logo hear   ============ -->
+                    <img src="{% static 'assets/images/imcmotivator-icon.png'%}" alt="" class="logo logo-lg">
+                    <img src="{% static 'assets/images/logo-sm.svg'%}" alt="" class="logo logo-sm">
+                </a>
+            </div>
+            <div class="navbar-content">
+                <ul class="pc-navbar">
+                    <li class="pc-item pc-caption">
+                        <label>Navegação</label>
+                    </li>
+                    <li class="pc-item">
+                        <a href="/imcmotivator/home" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">home</i></span><span class="pc-mtext">Dashboard</span></a>
+                    </li>
+                    <li class="pc-item pc-caption">
+                        <label>Ações</label>
+                        <span>UI Components</span>
+                    </li>
+                    <li class="pc-item pc-hasmenu">
+                        <a href="#!" class="pc-link "><span class="pc-micon">
+                            <i class="material-icons-two-tone">people</i></span>
+                            <span class="pc-mtext">Pesos</span>
+                            <span class="pc-arrow"><i data-feather="chevron-right"></i></span>
+                        </a>
+                        <ul class="pc-submenu">
+                            <li class="pc-item"><a class="pc-link" href="/imcmotivator/cadastroPeso/">Cadastrar</a></li>
+
+                        </ul>
+                        <ul class="pc-submenu">
+                            <li class="pc-item"><a class="pc-link" href="/imcmotivator/listarPeso/{{user.pk}}/">Histórico</a></li>
+
+                        </ul>
+                    </li>
+                    <li class="pc-item pc-hasmenu">
+                        <a href="#!" class="pc-link "><span class="pc-micon">
+                            <i class="material-icons-two-tone">stars</i></span>
+                            <span class="pc-mtext">Dose de Motivação</span>
+                            <span class="pc-arrow"><i data-feather="chevron-right"></i></span>
+                        </a>
+                        <ul class="pc-submenu">
+                            <li class="pc-item"><a class="pc-link" href="/imcmotivator/fraseRandomica/{{user.pk}}/">Frase Aleatória</a></li>
+
+                        </ul>
+                        <ul class="pc-submenu">
+                            <li class="pc-item"><a class="pc-link" href="/imcmotivator/fraseAutorPessoa/{{user.pk}}/">Frase por Autor</a></li>
+
+                        </ul>
+                        <ul class="pc-submenu">
+                            <li class="pc-item"><a class="pc-link" href="/imcmotivator/frasePalavra/{{user.pk}}/">Frase por Palavra Chave</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- [ navigation menu ] end -->
+    <!-- [ Header ] start -->
+    <header class="pc-header ">
+        <div class="header-wrapper">
+
+            <div class="ml-auto">
+                <ul class="list-unstyled">
+                    <!--<li class="dropdown pc-h-item">
+                        <a class="pc-head-link dropdown-toggle arrow-none mr-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                            <i class="material-icons-two-tone">search</i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right pc-h-dropdown drp-search">
+                            <form class="px-3">
+                                <div class="form-group mb-0 d-flex align-items-center">
+                                    <i data-feather="search"></i>
+                                    <input type="search" class="form-control border-0 shadow-none" placeholder="Search here. . .">
+                                </div>
+                            </form>
+                        </div>
+                    </li>-->
+                    <li class="dropdown pc-h-item">
+                        <a class="pc-head-link dropdown-toggle arrow-none mr-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                            <img src="{% static 'assets/images/user/user.jpg'%}" alt="user-image" class="user-avtar">
+                            <span>
+                                <span class="user-name">{{user.first_name}}</span>
+                            <span class="user-desc">Administrator</span>
+                            </span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right pc-h-dropdown">
+                            <a href="#" class="dropdown-item">
+                                <i class="material-icons-two-tone">account_circle</i>
+                                <span>Minha conta</span>
+                            </a>
+                            <a href="/imcmotivator/logout/" class="dropdown-item">
+                                <i class="material-icons-two-tone">chrome_reader_mode</i>
+                                <span>Logout</span>
+                            </a>
+                            <hr>
+                            <a href="/imcmotivator/editarCadastro/{{user.pk}}" class="dropdown-item">
+                                <i class="material-icons-two-tone">edit</i>
+                                <span>Editar Informações</span>
+                            </a>
+                            <a href="/imcmotivator/deletarCadastro" class="dropdown-item">
+                                <i class="material-icons-two-tone">delete</i>
+                                <span>Deletar Conta</span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </header>
+    <!-- [ Header ] end -->
+
+    <!-- [ Main Content ] start -->
+    <div class="pc-container">
+        <div class="pcoded-content">
+            <div class="page-header">
+                <div class="page-block">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <div class="page-header-title">
+                                <h5 class="m-b-10">Home</h5>
+                            </div>
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/imcmotivator/frasePalavra/{{user.pk}}">Home</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- [ Main Content ] start -->
+
+            <!-- [ Constroi a página de Dashboard Home ] -->
+
+            {% block dashboard-home %}{% endblock %}
+
+            <!-- [ Constroi a página de Deletar Perfil da Pessoa -->
+            {% block deletar-pessoa %}{% endblock %}
+
+            <!-- [ Constroi a página de Editar Cadastro da Pessoa -->
+            {% block editar-cadastro %}{% endblock %}
+
+            <!-- [ Constroi a página de Cadastrar Peso -->
+            {% block cadastrar-peso-pessoa %}{% endblock %}
+
+            <!-- [ Constroi a página de Listagem de Peso -->
+            {% block listar-peso-pessoa %}{% endblock %}
+
+            <!-- [ Constroi a página de Frase Randomica -->
+            {% block frase-autor-random %}{% endblock %}
+
+            <!-- [ Constroi a página de Frase do Autor Favorito -->
+            {% block frase-autor-favorite %}{% endblock %}
+
+            <!-- [ Constroi a página de Frase por palavra -->
+            {% block frase-palavra %}{% endblock %}
+
+            <!-- [ Main Content ] end -->
+        </div>
+    </div>
+
+    <!-- Warning Section Ends -->
+    <!-- Required Js -->
+    <script src="{% static 'assets/js/vendor-all.min.js'%}"></script>
+    <script src="{% static 'assets/js/plugins/bootstrap.min.js'%}"></script>
+    <script src="{% static 'assets/js/plugins/feather.min.js'%}"></script>
+    <script src="{% static 'assets/js/pcoded.min.js'%}"></script>
+
+    <!-- input-mask js -->
+    <script src="{% static 'assets/js/input-mask.js'%}"></script>
+
+    <!-- Apex Chart 
+    <script src="{% static 'assets/js/plugins/apexcharts.min.js'%}"></script>
+    -->
+    <!-- custom-chart js
+    <script src="{% static 'assets/js/pages/dashboard-sale.js'%}"></script>
+     -->
+
+</body>
+
+</html>

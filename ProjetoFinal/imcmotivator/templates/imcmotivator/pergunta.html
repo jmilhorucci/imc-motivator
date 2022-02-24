@@ -1,0 +1,98 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <title>Você está feliz com IMC Motivator?</title>
+    <!-- HTML5 Shim and Respond.js IE11 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 11]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="DashboardKit is made using Bootstrap 5 design framework. Download the free admin template & use it for your project.">
+    <meta name="keywords" content="DashboardKit, Dashboard Kit, Dashboard UI Kit, Bootstrap 5, Admin Template, Admin Dashboard, CRM, CMS, Free Bootstrap Admin Template">
+    <meta name="author" content="DashboardKit ">
+
+
+    <!-- Favicon icon -->
+    <link rel="icon" href="{% static 'assets/images/favicon.svg'%}" type="image/x-icon">
+
+    <!-- font css -->
+    <link rel="stylesheet" href="{% static 'assets/fonts/feather.css'%}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/fontawesome.css'%}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/material.css'%}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+    <!-- vendor css -->
+    <link rel="stylesheet" href="{% static 'assets/css/style.css'%}" id="main-style-link">
+
+
+</head>
+
+<body class="bg-primary">
+    <div class=" bg-primary">
+        <div class="container p-4 px-lg-5">
+            <div class="p-4 d-flex justify-content-center">
+                <!-- [ Main Content ] start -->
+
+                <div class="card">
+
+                    <div class="card-group">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title text-primary">Peso (Kg)</h5>
+                                <h1 class="card-text display-4">&#128156; {{peso.peso}}</h1>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title text-primary">IMC</h5>
+                                <h1 class="card-text display-4">&#128293; {{peso.imc}}</h1>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="card-header text-center">
+                            <h3>Diga aê, você está satisfeito(a) com os seus resultados? &#129300;</h3>
+                        </div>
+                        <br>
+                        <div class="col-12 text-center">
+
+                            <a href="/imcmotivator/fraseRandomica/{{user.pk}}/"><button type="button"class="btn btn-danger mr-2" data-toggle="modal">Não</button></a>
+
+                            <a href="/imcmotivator/fraseAutorPessoa/{{user.pk}}/"><button type="button" class="btn btn-success" data-toggle="modal">Sim</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- [ Main Content ] end -->
+        </div>
+    </div>
+    <div class="card-footer text-muted">
+    </div>
+    </div>
+    <!-- [ auth-signup ] end -->
+
+    <!-- Required Js -->
+    <script src="{% static 'assets/js/vendor-all.min.js'%}"></script>
+    <script src="{% static 'assets/js/plugins/bootstrap.min.js'%}"></script>
+    <script src="{% static 'assets/js/plugins/feather.min.js'%}"></script>
+    <script src="{% static 'assets/js/pcoded.min.js'%}"></script>
+
+    <!-- input-mask js -->
+    <script src="{% static 'assets/js/input-mask.js'%}"></script>
+
+
+</body>
+
+</html>
+
+<div class="fixed-button active"><a href="/imcmotivator/home" class="btn btn-md btn-success"><i class="bi bi-arrow-left-circle"></i> Voltar</a> </div>
